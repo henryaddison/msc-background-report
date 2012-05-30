@@ -1,0 +1,21 @@
+\documentclass[a4paper,11pt,twoside]{report}
+\usepackage[left=2.5cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\usepackage[nodayofweek]{datetime}
+\longdate
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhf{}
+\lhead{\fancyplain{}{M.Sc.\ Individual Project Background Report}}
+\rhead{\fancyplain{}{\today}}
+\cfoot{\fancyplain{}{\thepage}}
+
+\input{title}
+
+\begin{document}
+  \maketitle
+  \input{intro}
+  \bibliographystyle{plain}
+  \bibliography{mendeley}
+\end{document}
