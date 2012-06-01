@@ -3,7 +3,7 @@
 Before implementation can begin some time should be taken to carefully define the problem.
 
 \section{Issues facing a cox}
-The cox has many issues to deal with in the course of an outing. These have been split into to types. There are issues external to the crew and there are issues internal to the crew
+The cox has many issues to deal with in the course of an outing. These have been split into two types - external issues that place physical constraints on where the boat should be and internal issues that may affect the effect of actions taken by a cox. For the most part this project will look at having autonomous coxes learn to deal with the external issues and not worry too much about the complications that the internal issues may introduce.
 
 \subsection{External Issues}
 \begin{itemize}
@@ -38,3 +38,22 @@ As presented in the Introduction the aim of a simulation of conditions on the ri
 \end{enumerate}
 
 It would be interesting to follow up some of these questions as well during the project, particularly questions \ref{CoopQ} and \ref{CommQ}.
+
+\section{Objects in Universe}
+
+To make it feasible to create a simulation the model must simplify the real world. The first simplification is to restrict what objects shall be modelled. For the purposes of this project there are four main types of object to consider: the river, boats, outing plans and coxes. 
+
+\subsection{River}
+The vast majority of rowing on the Cam takes places on a 5km stretch of river between Jesus Lock and Baits Bite Lock. Some crews do carry their boats over Baits Bite Lock to another stretch of river up to Bottisham lock. The boathouses used by rowers are clustered near Jesus Lock.  This stretch of the Cam has been known to flood but for the most part it is static and its stream has no effect on boats. 
+
+\subsubsection{Simplifications}
+A crew carrying their boat over Baits Bite Lock happens infrequently enough that it can safely be ignored.
+The boathouses are sufficiently close together and near Jesus Lock that it is reasonable to merge the boathouses into one. 
+Outside of race days and a brief period early in the year when novice crews take to the water, the short stretch of water from Christ's boathouse (the last in the row) to Jesus Lock is rarely used and so it seems reasonable to treat this merged boathouse as one end point of the river rather than Jesus Lock.
+
+
+\subsection{Boat}
+
+\subsection{Outing Plan}
+
+\subsection{Cox}
