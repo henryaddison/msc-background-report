@@ -1,9 +1,120 @@
-\chapter{Plan}
-\section{Modelling}
+\chapter{Progress and Plan}
 
-\section{Implementation}
+I have broken
+the project down into three main sections - modelling,
+implementation and evaluation. Modelling will highlight which the features in the
+environment to be simulated are important and which can be ignored
+\cite{Sterling2009}. In the implementation phase, the model is transformed in
+computer code so that the simulation can be run. Once modelling and
+implementation are sufficiently far along that the code is producing
+results, then the evaluation stage can begin and results can be
+analysed. Although they are discussed separately, they all affect each
+other. For example, difficulties in implementation may require a rethink in the
+model and the implementation must include code that stores results for
+evaluation.
 
-\subsection{Software Engineering}
+\section{Progress}
+Most of the progress so far has been on modelling and so I shall focus
+on it for this section. With the model incomplete not much progress
+can be made with implementation - I have spent some time playing
+around with vtk and NetLogo. And without an implementation to produce
+results certainly no progress has been made on evaluation.
+
+\subsection{Modelling} \label{prog:model}
+In order to model the environment and agents for the simulation, we
+must simplify. In section \ref{sop:objuni} the first step in this
+simplification process by restricting the
+objects within the problem domain. It is also necessary to
+simplify the objects themselves so that they can be analysed.
+
+\subsubsection{River}
+\begin{itemize}
+  \item A crew carrying their boat over Baits Bite Lock happens infrequently enough that it can safely be ignored.
+  \item The boathouses are sufficiently close together and near Jesus Lock that it is reasonable to merge the boathouses into one. 
+  \item Outside of race days and a brief period early in the year when
+    novice crews take to the water, the short stretch of water from
+    Christ's boathouse (the last in the row) to Jesus Lock is rarely
+    used and so it seems reasonable to treat this merged boathouse as
+    one end point of the river rather than Jesus Lock.
+  \item Shall assume there are equally spaced, frequent landmarks
+    along both banks of the river.
+\end{itemize}
+
+\subsubsection{Boat}
+\begin{itemize}
+  \item To begin with shall assume all boats are rowing eights.
+  \item Restrict to just looking at the 2D cross-section of where boat
+    meets water, so can consider a boat to be a rigid 17m x 7m rectangle for
+    the purposes of collision detection.
+  \item A boat will have a fixed maximum speed and fixed acceleration
+    rates and deceleration rates (to begin with these may even be
+    infinite). When a boat is launched these parameters will be
+    selected at random from a distribution to be determined.
+\end{itemize}
+
+\subsubsection{Outing Plan}
+\begin{itemize}
+  \item An outing plan will specify a single desired speed to travel at
+    and a total distance to cover before returning to the
+    boathouse. Each time a boat is launched these parameters will be
+    chosen at random from distributeion to be determined.
+  \item To begin with shall ignore time constraints.
+\end{itemize}
+
+\subsubsection{Cox}
+Let us consider the cox as an autonomous agent whose actions
+(performed by the rowers or the rudder) affect the boat he is in. To
+model the cox, we shall follow loosely the layered agent-modelling
+technique laid out in \cite{Sterling2009}. We shall also look at the
+goals a cox may wish to achieve, the various roles a cox may fulfill
+and the constraints placed upon the cox. We shall also consider the
+actions, perceptions and knowledge base available to the cox.
+
+\begin{itemize}
+  \item Shall ignore the reaction time required to apply any choices
+    made by the cox.
+  \item Shall assume the cox has a full 360\textdegree (so vision is
+    not blocked by his or other boats). 
+  \item Shall assume his
+    vision is blocked by the river bank which sits sufficiently high
+    above the river to make it impossible to see around corners.
+  \item Shall assume the cox can guess reasonable well the speed and
+    direction of boats within his line of sight (including his own).
+  \item Shall assume the cox has a fairly good memory of the river's
+    layout so can guess his location reasonably well from the nearby
+    landmarks as mentioned in \ref{riversubsec}.
+  \item Shall treat spinning as an atomic action.
+\end{itemize}
+
+\section{Plan}
+
+\subsection{Modelling}
+
+Section \ref{prog:model} shows the state of the current
+model. However, there are still some questions that must be
+answered. For a single boat learning to navigate an empty river it will be necessary to decide what speeds it can
+move at (both as desired by an outing plan and maximum) and what rates
+turning are available to it. Later on when more boats are introduced
+it might be nice to try and simulate traffic conditions similar to
+those found in the real world and
+so it will be necessary to produce a model of how frequently boats
+launch and the distribution of speeds and outing plans across boats,
+along with any dependencies (for example, I would guess that boats
+with a slower maximum speed tend to go out less frequently and have
+shorter outings when they do go out).
+
+\subsection{Implementation}
+The implementation plan has two parts. Firstly, process of converting
+the model into computer code must be broken down into smaller
+tasks. This stage will also include which tools to use to complete the
+tasks such as which language and pre-existing libraries or frameworks
+to use. This is the plan that lays out what needs doing. Secondly, the
+plan should contain a brief description of the manner in which I plan
+to work. This can be considered as a brief description of software
+engineering methodology. This second part can be expanded now as it
+comes from my experience of past projects.
+
+\subsubsection{Software Engineering Methodology}
 This project is about more than producing a piece of software but I
 consider it to include a significant portion to be software
 engineering.  As such I will layout briefly how I plan to follow good
@@ -20,7 +131,7 @@ has limited use for an individual project but there are still
 occassions when I may wish to access the code when away from my
 development machine. It also allows my supervisor (and indeed anyone
 else) to follow my progress should she wish to (\url{https://github.com/henryaddison}).
-For instance the source for this \LaTeX report can be found at
+For instance the source for this \LaTeX  report can be found at
 \url{https://github.com/henryaddison/msc-background-report}. 
 
   \item[Iterative] Although the full Agile methodology does not a appropriate to a single-person
@@ -37,3 +148,10 @@ also the tests double as a form of living documentation.
 Three months is a very short time so if I do not complete all the goals of the project in
 that time I hope these practices will help me write code that I or someone else
 could continue to work with at a later date.
+
+\subsection{Evaluation}
+In order to evaluate any results produced, it is necessary to decide
+first what should be considered as successful outcomes and then how
+these should be measured. For example, from a safety point of view it
+would be desireable to cutdown on dangerous crashes, which might be
+measured as the number of collisions above a certain speed.

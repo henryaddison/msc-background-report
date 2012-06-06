@@ -39,7 +39,7 @@ As presented in the Introduction the aim of a simulation of conditions on the ri
 
 It would be interesting to follow up some of these questions as well during the project, particularly questions \ref{CoopQ} and \ref{CommQ}.
 
-\section{Objects in Universe}
+\section{Objects in Universe}\label{sop:objuni}
 
 To make it feasible to create a simulation the model must simplify the real world. The first simplification is to restrict what objects shall be modelled. For the purposes of this project there are four main types of object to consider: the river, boats, outing plans and coxes. 
 
@@ -53,19 +53,6 @@ part it is static and its stream has no effect on boats. The bank is
 very varied along this stretch of river and there are many landmakrs
 in the form of corners, bridges, make up of the bank (concrete, grass
 or trees, for example) and buildings, fences and other constructions.
-
-\subsubsection{Simplifications}
-\begin{itemize}
-  \item A crew carrying their boat over Baits Bite Lock happens infrequently enough that it can safely be ignored.
-  \item The boathouses are sufficiently close together and near Jesus Lock that it is reasonable to merge the boathouses into one. 
-  \item Outside of race days and a brief period early in the year when
-    novice crews take to the water, the short stretch of water from
-    Christ's boathouse (the last in the row) to Jesus Lock is rarely
-    used and so it seems reasonable to treat this merged boathouse as
-    one end point of the river rather than Jesus Lock.
-  \item Shall assume there are equally spaced, frequent landmarks
-    along both banks of the river.
-\end{itemize}
 
 \subsection{Boat}
 The stretch of the Cam described above is used heavily by rowing boats
@@ -98,19 +85,6 @@ handled, the tourist traffic which behaves more erratically is
 restricted to its own part of the river through town which rowing
 boats cannot use.
 
-
-\subsubsection{Simplifications}
-\begin{itemize}
-  \item To begin with shall assume all boats are rowing eights.
-  \item Restrict to just looking at the 2D cross-section of where boat
-    meets water, so can consider a boat to be a rigid 17m x 7m rectangle for
-    the purposes of collision detection.
-  \item A boat will have a fixed maximum speed and fixed acceleration
-    rates and deceleration rates (to begin with these may even be
-    infinite). When a boat is launched these parameters will be
-    selected at random from a distribution to be determined.
-\end{itemize}
-
 \subsection{Outing Plan}
 An outing plan is usually a set of exercises to be done during an
 outing. It is set before the outing and makes up a training plan aimed
@@ -120,14 +94,6 @@ how much pressure should be applied by how many rowers) for a certain
 time or distance limit. Outing plans will also contain overall
 constraints like covering a certain distance or being out on the water
 for a certain amount of time (usual maximal as rowers must be back for lectures).
-\subsubsection{Simplifications}
-\begin{itemize}
-  \item An outing plan will specify a single desired speed to travel at
-    and a total distance to cover before returning to the
-    boathouse. Each time a boat is launched these parameters will be
-    chosen at random from distributeion to be determined.
-  \item To begin with shall ignore time constraints.
-\end{itemize}
 
 \subsection{Cox}
 The cox is a the main brains of a boat from a navigation view
@@ -149,19 +115,5 @@ direction. Although often accompanied by a coach on the bank, the cox
 has the final word in what the boat does and so for the purposes of
 this project we shall leave it to the cox to follow the training plan
 as close as possible.
-\subsubsection{Simplifications}
-\begin{itemize}
-  \item Shall ignore the reaction time required to apply any choices
-    made by the cox.
-  \item Shall assume the cox has a full 360\textdegree (so vision is
-    not blocked by his or other boats). 
-  \item Shall assume his
-    vision is blocked by the river bank which sits sufficiently high
-    above the river to make it impossible to see around corners.
-  \item Shall assume the cox can guess reasonable well the speed and
-    direction of boats within his line of sight (including his own).
-  \item Shall assume the cox has a fairly good memory of the river's
-    layout so can guess his location reasonably well from the nearby
-    landmarks as mentioned in \ref{riversubsec}.
-  \item Shall treat spinning as an atomic action.
-\end{itemize}
+
+
