@@ -2,33 +2,11 @@
 
 Before implementation can begin some time should be taken to carefully define the problem.
 
-\section{Issues facing a cox}
-The cox has many issues to deal with in the course of an outing. These have been split into two types - external issues that place physical constraints on where the boat should be and internal issues that may affect the effect of actions taken by a cox. For the most part this project will look at having autonomous coxes learn to deal with the external issues and not worry too much about the complications that the internal issues may introduce.
-
-\subsection{External Issues}
-\begin{itemize}
-  
-  \item{Navigation} The cox controls the rudder and dictates the power applied by each rower and so it is his responsibility to steer a path along the river.
-  
-  \item{Congestion} As well as avoiding static obstacles, the cox will also have to contend with other river users who may get in his way. The Cam is a very small river with a large number of rowers so dealing with congestion is a common problem.
-  
-  \item{Safety} The cox is responsible for the safety of the boat and crew because he is the person in charge of the boat's speed and direction and the one person looking forward in the boat. It is the cox's responsibility that the boat does not collide with any obstacles that may cause damage to any people or equipment on the river.
-  
-  \item{Covering distance} A crew will gain very little from an outing if they only travel a short distance at a slow speed. Often a coach will supply the crew with an outing plan that will dictate how fast and how far the crew should travel during the outing. The cox should ensure that the crew's actual activity matches the outing plan as closely as possible.
-  
-\end{itemize}
-
-\subsection{Internal Issues}
-\begin{itemize}
-  \item{Indirect Control} Unlike a car where the driver can directly adjust speed with the accelerator pedal, a cox can only request that the rowers apply more or less pressure. It is the rowers themselves who must make these changes. Even if these requests are followed only they can only specify very rough changes in pressure applied which in turn means speed can only be altered in hard-to-predict jumps.
-  
-  \item{Physiological Constraints} Each rower is a human and so there are complex physiological (and psychological) constraints that will limit how quickly the rowers can accelerate the boat and how long they can maintain a particular speed.
-\end{itemize}
-
-
 \section{Questions that simulation could help answer}
 
-As presented in the Introduction the aim of a simulation of conditions on the river Cam is to try and answer the question ``What should an inexperienced cox try to do?" There are also other questions that may be of interest that perhaps the simulation could help address.
+As presented in the Introduction the aim of a simulation of conditions
+on the river Cam is to try and answer the question ``What should an
+inexperienced cox try to do?" There are also other questions that a simulation could help answer.
 
 \begin{enumerate}
   \item What is the pattern of traffic on the river? Why does it get busy in certain parts of the parts at certain times? Could adjustments in cox behaviour improve traffic flow?
@@ -39,27 +17,63 @@ As presented in the Introduction the aim of a simulation of conditions on the ri
 
 It would be interesting to follow up some of these questions as well during the project, particularly questions \ref{CoopQ} and \ref{CommQ}.
 
-\section{Objects in Universe}\label{sop:objuni}
+\section{Issues facing a cox}
+The cox has many issues to deal with in the course of an outing. These
+have been split into two types. There are external issues that place
+physical constraints on where the boat should be and internal issues
+that may affect the result of actions taken by a cox. 
+
+
+\subsection{External Issues}
+\begin{itemize}
+  
+  \item{\textbf{Navigation}} The cox controls the rudder and dictates the power applied by each rower and so it is his responsibility to steer a path along the river.
+  
+  \item{\textbf{Congestion}} As well as avoiding static obstacles like
+    the river bank, the cox will also have to contend with other river users who may get in his way. The Cam is a very small river with a large number of rowers so dealing with congestion is a common problem.
+  
+  \item{\textbf{Safety}} The cox is responsible for the safety of the
+    boat and crew because he is the person in charge of the boat's
+    speed and direction and the one person looking forward in the
+    boat. It is the cox's responsibility that no harm comes to people
+    or equipment during an outing.
+  
+  \item{\textbf{Covering distance}} A crew will not get better at racing if they only travel a short distance at a slow speed. Often a coach will supply the crew with an outing plan that will dictate how fast and how far the crew should travel during the outing. The cox should ensure that the crew's actual activity matches the outing plan as closely as possible.
+  
+\end{itemize}
+
+\subsection{Internal Issues}
+\begin{itemize}
+  \item{\textbf{Indirect Control}} Unlike a car where the driver can directly adjust speed with the accelerator pedal, a cox can only request that the rowers apply more or less pressure. It is the rowers themselves who must make these changes. Even if these requests are followed only they can only specify very rough changes in pressure applied which in turn means speed can only be altered in hard-to-predict jumps.
+  
+  \item{\textbf{Physiological Constraints}} \label{physiocons} Each rower is a human and so there are complex physiological (and psychological) constraints that will limit how quickly the rowers can accelerate the boat and how long they can maintain a particular speed.
+\end{itemize}
+
+For the most part this project will look at having autonomous coxes
+learn to deal with the external issues and not worry too much about
+the complications that the internal issues introduce. In particular,
+although coaching and motivation are an important part of a cox's
+duties, this project will stick to physically issues of maneuvering a boat.
+
+\section{Objects in Problem Domain}\label{sop:objuni}
 
 To make it feasible to create a simulation the model must simplify the real world. The first simplification is to restrict what objects shall be modelled. For the purposes of this project there are four main types of object to consider: the river, boats, outing plans and coxes. 
 
 \subsection{River} \label{riversubsec}
-The vast majority of rowing on the Cam takes places on a 5km stretch
-of river between Jesus Lock and Baits Bite Lock. Some crews do carry
+Most rowing on the Cam takes places in the 5km between Jesus Lock and
+Baits Bite Lock. A few crews sometimes carry
 their boats over Baits Bite Lock to another stretch of river up to
 Bottisham lock. The boathouses used by rowers are clustered near Jesus
-Lock. This stretch of the Cam has been known to flood but for the most
-part it is static and its stream has no effect on boats. The bank is
-very varied along this stretch of river and there are many landmakrs
-in the form of corners, bridges, make up of the bank (concrete, grass
-or trees, for example) and buildings, fences and other constructions.
+Lock. The river has been known to flood but for the most
+part it is static and its stream has no effect on boats. The river bank is
+varied and there are many landmarks
+such as corners, bridges, trees, and buildings by the river.
 
 \subsection{Boat}
-The stretch of the Cam described above is used heavily by rowing boats
-of various sizes both coxed and coxless. However, the nature of
+The river is used by rowing boats
+of various sizes both coxed and coxless. The nature of
 college racing means that the vast majority of rowing is done in
-eights. Taking the dimensions of a Janousek eight (a commonly used
-make), an eight is roughly 17m long, 60cm wide and 40cm deep
+eights. A commonly used boat is a Janousek eight whose dimensions are 17m long, 60cm wide and 40cm deep
 \cite{Janousek}. The effective width of an eight however is much wider
 since we must take into account of the oars. An oar on a rowing boat
 is roughly 370cm long \cite{Concept2}, although about 60cm of that
@@ -69,40 +83,39 @@ way to reduce the width of the boat, but this should only be done on
 one side and when the boat is stationary if the rowers do not wish to
 capsize.
 
-The boat also holds the rowers, so this is the object that we consider
-to have a speed and a direction. The speed and acceleration of a boat
+The rowers sit in the boat. The speed and acceleration of a boat
 is limited by the strength and skill of the rowers along with
-psyiological constraints mentioned above. It should also be noted that
+physiological constraints mentioned in \ref{physiocons}. It should also be noted that
 not all boats are equal. Male rowers can apply more power than female
-rowers. Boats are often selected on skill so a college 1st boat will
-be able to move faster than a 5th boat.
+rowers. Crews for a boats selected by gender and ability so a 1st men's boat will
+be able to move faster than a women's 4th boat.
 
 The river is also used by a few barges and riverboats. Many of these
-are lived in and never move from their moorings on the bank for part
-of the river by the boathouses. However, a few do occassionally move
+are lived in and never move from their moorings on the bank by the boathouses. A few do occassionally move
 up and down the river. It should be noted that these boats are well
-handled, the tourist traffic which behaves more erratically is
-restricted to its own part of the river through town which rowing
-boats cannot use.
+handled. The tourist traffic which behaves more erratically is
+restricted to its own, separate part of the river.
 
 \subsection{Outing Plan}
 An outing plan is usually a set of exercises to be done during an
 outing. It is set before the outing and makes up a training plan aimed
-to improve the power and skill of rowers in a boat. These can take many forms but in terms of navigation they boil
+to improve the power and skill of rowers in a boat over a period of time. These can take many forms but in terms of navigation they boil
 down to specifying a certain speed (albeit often through proxies like
 how much pressure should be applied by how many rowers) for a certain
 time or distance limit. Outing plans will also contain overall
 constraints like covering a certain distance or being out on the water
-for a certain amount of time (usual maximal as rowers must be back for lectures).
+for a certain amount of time.
 
 \subsection{Cox}
 The cox is a the main brains of a boat from a navigation view
 point. This is not to denigrate the rowers who must perform very
 complex actions in order to propel a boat and must respond to a cox's
-orders, but in a coxed boat it is accepted that the job of navigation
+orders, but the job of navigation
 is delegated to the cox. Therefore for the purposes of this project we
-shall consider the cox as an agent who can make observations about the
-river, their boat and other boats. The cox can request alterations to
+shall consider the cox as an autonomous agent who can make observations about the
+river, their boat and other boats. 
+
+The cox can request alterations to
 a boat's speed and, by adjusting the rudder, can alter the rate of
 turning. Alterations to the boats speed can be done in two ways:
 either by adjusting the power applied by the rowers or by getting the
@@ -113,7 +126,7 @@ cox can have the rowers on one side row forwards and those on the other
 to row backwards as a way of spinning the boat to face the other
 direction. Although often accompanied by a coach on the bank, the cox
 has the final word in what the boat does and so for the purposes of
-this project we shall leave it to the cox to follow the training plan
+this project we shall leave it to the cox to follow the outing plan
 as close as possible.
 
 
