@@ -34,43 +34,47 @@ and visualizing multi-agent systems.
 
 One way to see this project is to treat the cox and a boat as a mobile
 robot. The cox makes observations and decides actions while the boat
-acts as the embodiment of the cox and the rowers in the boat can be
-seen as teh robot's actuators. Nguyen-Tuong et al. survey the current state
+acts as the embodiment of the cox and the rowers can be
+seen as the robot's actuators. Nguyen-Tuong et al. survey the current state
 model learning for robot control in \cite{Nguyen-Tuong2011}. A lot of
-the techniques covered in this paper are perhaps beyond the scope of
+the techniques covered in this paper are beyond the scope of
 this project since the aim is to learn a simple control policy that a
 human can understand. However, it is reassuring to see that robot
-control is considered very much an open problem and help to provide
-more motivation of treating the coxes as learning agents to remove the
+control is considered very much an open problem and provides
+more motivation for treating the coxes as learning agents to remove the
 necessity of pre-programming analytic solutions to all scenarios these
 coxes may face.
 
 One particular study in having a robot learn to control itself is by
 Banzhaf et al. \cite{Banzhaf1997}. In this case the control program
-run by a robot is a determined through a process of genetic
-programming. Although the final program may not be accessible to a
+run by a robot is discovered using an evolutionary algorithm. Although the final program may not be accessible to a
 human, the fitness functions used in
 the evolutionary process to produce programs exhibiting chosen
 behaviour (such as obstacle avoidance or wall-following) are
-readable. It should also be noted that the authors failed in using
-their GP process to produce a program that could switch between the
-desired behaviours. This is something that a cox needs to do as he
+readable. It should also be noted that the authors failed to produce a program that could switch between the
+desired behaviours using their genetic programming appraoch. This is something that a cox needs to do as he
 switches between different behaviours such as a following the river, overtaking a
 slower crew and spinning.
 
-Braitenberg vehicles \cite{Braitenberg1986} presents a compelling
-thought experiment into how complex ``behaviour'' can be induced in
+Braitenberg's Vehicles \cite{Braitenberg1986} are compelling
+thought experiments into how apparently complex behaviour can observed in
 very simple vehicles. Perhaps viewing the boat as a vehicle with
 reacting to stimuli in a straight-forward manner is
-sufficient. Perhaps in the case of an empty river a cox can follow a
+sufficient, particularly in the case of an empty river a cox can follow a
 simple bank-following strategy.
 
-It may be that the Braitenberg vehicle required to simulate cox
+It may also be that the Braitenberg vehicle required to simulate cox
 beahviour will be too complicated to be analysed by a human. Nilsson's
-teleo-reactive programs,\cite{Nilsson1994}, provide a very interesting
-alternative, designed to be human readable, at the cost of
-computational efficiency. Given the exponential improvements in
-computational power since 1994 this may no longer be a problem. It
+teleo-reactive programs \cite{Nilsson1994} provide an
+alternative for producing programs that can used used to control a
+boat. A big advantage is that they are designed to be human
+readable. The cost of this readability is computational efficiency but
+improvements in
+computational power since 1994 may have rendered this problem
+irrelevant. These programs also capture the fact that a robot should
+continue in an action until stopped, matching how rowers are taught to
+behave
+(rowing in the same manner until told otherwise by the cox). It
 would also be interesting to follow up the question Nilsson himself
 asks in his paper of how such programs might be learnt by an agent.
 
@@ -78,24 +82,25 @@ asks in his paper of how such programs might be learnt by an agent.
 In \cite{Gilbert2002} Gilbert and Bankes explain the advantages and
 disadvantages of using pre-existing libraries and frameworks rather
 than ``rolling your own.'' Using pre-existing libraries frees a
-programmer up from re-implementing frequently used
+programmer up from re-implementing common
 algorithms. However, they also require a programmer to understand the
 language they are written in and to work with the built-in
 asssumptions used by the original writers. Gilbert and Bankes state
-that agent-based modeling tools that match their ideal specificcations
+that agent-based modeling tools that match their ideal specifications
 do not yet exist but that there is a trend towards better
 tools becoming available.
 
-Allen \cite{Allen2009} surveys a large number of agent based
+Allen \cite{Allan2009} surveys a large number of agent based
 modelling and simulation tools. Comparing his reviews with those by
-Berryman \cite{Berryman2008}, suggest that NetLogo and MASON are 2
-worth a closer look. NetLogo requires the use of a proprietary
+Berryman \cite{Berryman2008}, suggest that NetLogo and MASON are two
+worth investigating further. NetLogo requires the use of a proprietary
 language to program the agents aimed at beginner programmers, which I
 found too restrictive. NetLogo offers automatic drawing of agents in
 2D and 3D but I found the graphics options insufficiently
 sophisticated.
 
 The visualization problem may be got round by using specialized
-toolkits such as vtk \cite{website:vtk}. This open source framework
+toolkits such as Visualization Toolkit (VTK) \cite{kitware}. This open source framework
 appears sufficiently powerful and adaptable enough that it could be
-used in conjunction with a separate framework for simulating the boats behaviour.
+used in conjunction with a separate framework for simulating the
+behaviour of boats.
