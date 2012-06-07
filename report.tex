@@ -4,14 +4,13 @@
 \usepackage[nodayofweek]{datetime}
 \longdate
 
-\usepackage{fancyhdr}
-\usepackage{textcomp}
-\pagestyle{fancyplain}
-\fancyhf{}
-\lhead{\fancyplain{}{M.Sc.\ Individual Project Background Report}}
-\rhead{\fancyplain{}{\today}}
-\cfoot{\fancyplain{}{\thepage}}
+%\usepackage{fancyhdr}
+%\pagestyle{fancyplain}
+%\fancyhf{}
+%\lhead{\fancyplain{}{M.Sc.\ Individual Project Background Report}}
+%\cfoot{\fancyplain{}{\thepage}}
 
+\usepackage{textcomp}
 \usepackage{enumitem}
 
 \usepackage{hyperref}
@@ -20,6 +19,7 @@
 
 \begin{document}
   \maketitle
+  \setcounter{tocdepth}{1}
   \tableofcontents
   \input{intro}
   \input{sop}
@@ -27,4 +27,5 @@
   \input{plan}
   \bibliographystyle{plain}
   \bibliography{mendeley}
+  \input{methodology}
 \end{document}
