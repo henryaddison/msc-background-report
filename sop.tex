@@ -2,7 +2,7 @@
 
 Before implementation can begin some time should be taken to carefully define the problem.
 
-\section{Questions that simulation could help answer}
+\section{Motivation}
 
 As presented in the Introduction the aim of a simulation of conditions
 on the river Cam is to try and answer the question ``What should an
@@ -51,9 +51,9 @@ that may affect the result of actions taken by a cox.
 
 For the most part this project will look at having autonomous coxes
 learn to deal with the external issues and not worry too much about
-the complications that the internal issues introduce. In particular,
+the complications that caused by the internal issues. In particular,
 although coaching and motivation are an important part of a cox's
-duties, this project will stick to physically issues of maneuvering a boat.
+duties, this project will stick to examining the physical issues of maneuvering a boat.
 
 \section{Objects in Problem Domain}\label{sop:objuni}
 
@@ -73,7 +73,7 @@ such as corners, bridges, trees, and buildings by the river.
 The river is used by rowing boats
 of various sizes both coxed and coxless. The nature of
 college racing means that the vast majority of rowing is done in
-eights. A commonly used boat is a Janousek eight whose dimensions are 17m long, 60cm wide and 40cm deep
+eights. A commonly used boat is a Janousek eight which is roughly 17m long, 60cm wide and 40cm deep
 \cite{Janousek}. The effective width of an eight however is much wider
 since we must take into account of the oars. An oar on a rowing boat
 is roughly 370cm long \cite{Concept2}, although about 60cm of that
@@ -87,7 +87,7 @@ The rowers sit in the boat. The speed and acceleration of a boat
 is limited by the strength and skill of the rowers along with
 physiological constraints mentioned in \ref{physiocons}. It should also be noted that
 not all boats are equal. Male rowers can apply more power than female
-rowers. Crews for a boats selected by gender and ability so a 1st men's boat will
+rowers. Crews for a boats are selected by ability as well as gender so a 1st men's boat will
 be able to move faster than a women's 4th boat.
 
 The river is also used by a few barges and riverboats. Many of these
@@ -98,12 +98,12 @@ restricted to its own, separate part of the river.
 
 \subsection{Outing Plan}
 An outing plan is usually a set of exercises to be done during an
-outing. It is set before the outing and makes up a training plan aimed
+outing. It is set before the outing and is part of a training plan aimed
 to improve the power and skill of rowers in a boat over a period of time. These can take many forms but in terms of navigation they boil
-down to specifying a certain speed (albeit often through proxies like
+down to specifying a certain speed (albeit through proxies like
 how much pressure should be applied by how many rowers) for a certain
-time or distance limit. Outing plans will also contain overall
-constraints like covering a certain distance or being out on the water
+time or distance limit. Outing plans contain overall
+constraints like covering a certain distance or being on the water
 for a certain amount of time.
 
 \subsection{Cox}
@@ -113,11 +113,11 @@ complex actions in order to propel a boat and must respond to a cox's
 orders, but the job of navigation
 is delegated to the cox. Therefore for the purposes of this project we
 shall consider the cox as an autonomous agent who can make observations about the
-river, their boat and other boats. 
+river, their boat and other boats and perform actions affecting the
+boat's speed, through requests to the rowers, and rate of turning, by
+adjusting the rudder.
 
-The cox can request alterations to
-a boat's speed and, by adjusting the rudder, can alter the rate of
-turning. Alterations to the boats speed can be done in two ways:
+Alterations to the boats speed can be done in two ways:
 either by adjusting the power applied by the rowers or by getting the
 rowers to stop rowing and start braking (either in a controlled, comfortable manner
 or by making an emergency stop). A boat can also be moved very
@@ -126,7 +126,5 @@ cox can have the rowers on one side row forwards and those on the other
 to row backwards as a way of spinning the boat to face the other
 direction. Although often accompanied by a coach on the bank, the cox
 has the final word in what the boat does and so for the purposes of
-this project we shall leave it to the cox to follow the outing plan
-as close as possible.
-
-
+this project it is up to the cox to follow the outing plan
+as closely as possible.
