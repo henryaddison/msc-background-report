@@ -58,7 +58,9 @@ simplify the objects themselves so that they can be analysed.
 Let us consider the cox as an autonomous agent whose actions
 (performed by the rowers or the rudder) affect the boat he is in. To
 model the cox, we shall follow loosely the layered agent-modelling
-technique laid out in \cite{Sterling2009}. First we look at the
+technique laid out in \cite{Sterling2009}. 
+
+First we look at the
 goals a cox may wish to achieve, the constraints placed upon the cox
 and the roles a cox may fill.
 
@@ -75,7 +77,8 @@ and the roles a cox may fill.
       \item Avoid holding up other boats unnecessarily
     \end{itemize}
     
-  \item[Constraints]
+  \item[Constraints] The cox is not completely free to achieve the
+    goals in any possible way. There are the following constraints:
     \begin{itemize}
       \item Boat must sit fully on the river.
       \item Boat cannot overlap with any other boat.
@@ -95,7 +98,7 @@ and the roles a cox may fill.
   Next we shall consider the actions, perceptions and knowledge base available to the cox.
   
   \begin{description}
-    \item[Actions]
+    \item[Actions] A cox can perform the following actions:
       \begin{itemize}
         \item Cox can ask rowers to speed up or slow down.
         \item Cox can ask rowers to stop rowing and slow the boat down.
@@ -106,7 +109,8 @@ and the roles a cox may fill.
         \item Shall ignore the reaction time required to apply any choices
           made by the cox.
         \end{itemize}
-    \item[Perceptions]
+    \item[Perceptions] A cox can make observations about objects in
+      his line of sight.
       \begin{itemize}
         \item Shall assume the cox has a full 360\textdegree field of
           view.
@@ -117,7 +121,8 @@ and the roles a cox may fill.
         \item Shall assume the cox can guess reasonable well the speed and
         direction of boats within his line of sight (including his own).
         \end{itemize}
-    \item[Knowledge Base]
+    \item[Knowledge Base] Can assume the cox has access to the
+      following knowledge:
       \begin{itemize}
         \item Shall assume the cox has a fairly good memory of the river's
           layout so can guess his location reasonably well from the nearby
