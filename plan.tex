@@ -22,6 +22,7 @@ objects within the problem domain. It is also necessary to
 simplify the objects themselves so that they can be analysed.
 
 \subsection{River}
+The river represents the physical environment in which the cox operates.
 \begin{itemize}
   \item A crew carrying their boat over Baits Bite Lock happens
     infrequently enough that it can safely be ignored and Baits Bite
@@ -34,6 +35,7 @@ simplify the objects themselves so that they can be analysed.
 \end{itemize}
 
 \subsection{Boat}
+A boat is the embodiment of a cox.
 \begin{itemize}
   \item The boat is the object that we consider to have a location, speed and direction.
   \item To begin with shall assume all boats are rowing eights.
@@ -46,6 +48,8 @@ simplify the objects themselves so that they can be analysed.
 \end{itemize}
 
 \subsection{Outing Plan}
+An outing plan represents goals for a cox that are not necessarily
+shared between all coxes.
 \begin{itemize}
   \item An outing plan will specify a single desired speed to travel at
     and a total distance to cover before returning to the
@@ -81,8 +85,9 @@ and the roles a cox may fill. Then we shall consider the actions, perceptions an
     goals in any possible way. There are the following constraints:
     \begin{itemize}
       \item Boat must sit fully on the river.
-      \item Boat cannot overlap with any other boat.
-      \item There is a governing body called CUCBC that have laid down some rules for river use. Unlike the previous two hard, physical constraints these rules of the river (like rowing on the right-hand side) can be ignored. It would be interesting to see which of these rules get learnt naturally and which must be included directly if there are to be followed.
+      \item Boat cannot overlap with another boat.
+      \item There is a governing body called CUCBC that have laid down
+        some rules for river use \cite{CUCBC}. Unlike the previous two hard, physical constraints these rules of the river (like rowing on the right-hand side) can be ignored. It would be interesting to see which of these rules get learnt naturally and which must be included directly if there are to be followed.
     \end{itemize}
     
 \subsubsection{Roles}
@@ -109,7 +114,7 @@ and the roles a cox may fill. Then we shall consider the actions, perceptions an
 \subsubsection{Perceptions} A cox can make observations about objects in
       his line of sight.
       \begin{itemize}
-        \item Shall assume the cox has a full 360\textdegree field of
+        \item Shall assume the cox has a full 360\textdegree\ field of
           view.
         \item Shall assume the cox's vision is not blocked by his or other boats.
         \item Shall assume his
